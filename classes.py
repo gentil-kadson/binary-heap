@@ -23,6 +23,9 @@ class BinaryHeap:
     def __init__(self, array: list[BinaryItem] = []):
         self.__array: list[BinaryItem] = [BinaryItem(math.inf, 0), *array]
 
+    def display_heap(self) -> None:
+        print(self)
+
     def get_array(self) -> list[BinaryItem]:
         return self.__array
 
@@ -51,16 +54,39 @@ class BinaryHeap:
     def insert(self, new_item: BinaryItem) -> None:
         self.__array.append(new_item)
         self.go_up(len(self.__array) - 1)
+        self.display_heap()
 
-    def swap_first_and_last_items(self) -> None:
+    def remove(self) -> None:
         aux = self.__array[1]
         self.__array[1] = self.__array[-1]
         self.__array[-1] = aux
         self.__array.pop()
-
-    def remove(self) -> None:
-        self.swap_first_and_last_items()
         self.go_down(1, len(self.__array) - 1)
+        self.display_heap()
+
+    def get_high_priority(self):
+        print(self.__array[1].get_value())
+
+    def arrange(self, n_of_existing_elements: int) -> None:
+        for i in range(n_of_existing_elements // 2, 0, -1):
+            self.go_down(i, n_of_existing_elements)
+
+    def heap_sort(self, n_of_existing_elements: int) -> None:
+        self.arrange(n_of_existing_elements)
+        aux = n_of_existing_elements
+        while aux > 1:
+            swap_aux = self.__array[1]
+            self.__array[1] = self.__array[aux]
+            self.__array[aux] = swap_aux
+            aux -= 1
+            self.go_down(1, aux)
+            self.display_heap()
+
+    def change_priority(self, index: int, new_priority_key) -> None:
+        self.__array[index].set_key(new_priority_key)
+        self.__array[index].set_value(new_priority_key)
+        self.arrange(len(self.__array) - 1)
+        self.display_heap()
 
     def __str__(self) -> str:
         array_data = [
