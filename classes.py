@@ -71,9 +71,9 @@ class BinaryHeap:
         for i in range(n_of_existing_elements // 2, 0, -1):
             self.go_down(i, n_of_existing_elements)
 
-    def heap_sort(self, n_of_existing_elements: int) -> None:
-        self.arrange(n_of_existing_elements)
-        aux = n_of_existing_elements
+    def heap_sort(self) -> None:
+        self.arrange(len(self.__array) - 1)
+        aux = len(self.__array) - 1
         while aux > 1:
             swap_aux = self.__array[1]
             self.__array[1] = self.__array[aux]
