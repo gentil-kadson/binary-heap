@@ -1,6 +1,7 @@
 from classes import BinaryHeap, BinaryItem
 
 # 1ST DATASET
+print("========1ST DATASET========")
 items = [BinaryItem(10),
          BinaryItem(5),
          BinaryItem(20),
@@ -11,24 +12,30 @@ items = [BinaryItem(10),
 first_heap_dataset = BinaryHeap()
 
 # 1.
+print("1. HEAP CONSTRUCTION")
 for item in items:
     first_heap_dataset.insert(item)
 
 # 2.
+print("\n2. PRIORITY CHANGE")
 first_heap_dataset.change_priority(3, 50)
 first_heap_dataset.change_priority(1, 8)
 
 # 3.
+print("\n3. REMOVALS")
 for _ in range(3):
     first_heap_dataset.remove()
 
 # 4.
+print("\n4. HEAPSORT FUNCTION")
 first_heap_dataset.heap_sort()
 
 # 5.
+print("\n5. HIGH PRIORITY NODE")
 first_heap_dataset.get_high_priority()
 
 # 2ND DATASET
+print("\n========2ND DATASET========")
 items = [BinaryItem(1),
          BinaryItem(2),
          BinaryItem(3),
@@ -42,24 +49,30 @@ items = [BinaryItem(1),
 second_heap_dataset = BinaryHeap()
 
 # 1.
+print("1. HEAP CONSTRUCTION")
 for item in items:
     second_heap_dataset.insert(item)
 
 # 2.
+print("\n2. PRIORITY CHANGE")
 second_heap_dataset.change_priority(4, 15)
 second_heap_dataset.change_priority(8, 3)
 
 # 3.
+print("\n3. REMOVALS")
 for _ in range(5):
     second_heap_dataset.remove()
 
 # 4.
+print("\n4. HEAPSORT FUNCTION")
 second_heap_dataset.heap_sort()
 
 # 5.
+print("\n5. HIGH PRIORITY NODE")
 second_heap_dataset.get_high_priority()
 
 # 3RD DATASET
+print("\n========3RD DATASET========")
 items = [BinaryItem(50),
          BinaryItem(40),
          BinaryItem(30),
@@ -70,25 +83,31 @@ items = [BinaryItem(50),
 third_heap_dataset = BinaryHeap()
 
 # 1.
+print("1. HEAP CONSTRUCTION")
 for item in items:
     third_heap_dataset.insert(item)
 
 # 2.
+print("\n2. PRIORITY CHANGE")
 third_heap_dataset.change_priority(2, 60)
 third_heap_dataset.change_priority(5, 1)
 
 # 3.
+print("\n3. REMOVALS")
 for _ in range(3):
     third_heap_dataset.remove()
 
 
 # 4.
+print("\n4. HEAPSORT FUNCTION")
 third_heap_dataset.heap_sort()
 
 # 5.
+print("\n5. HIGH PRIORITY NODE")
 third_heap_dataset.get_high_priority()
 
 # 4TH DATASET
+print("\n========4TH DATASET========")
 items = [BinaryItem(13),
          BinaryItem(26),
          BinaryItem(19),
@@ -105,19 +124,26 @@ items = [BinaryItem(13),
 fourth_heap_dataset = BinaryHeap()
 
 # 1.
+print("1. HEAP CONSTRUCTION")
 for item in items:
     fourth_heap_dataset.insert(item)
 
 # 2.
+print("\n2. PRIORITY CHANGE")
 fourth_heap_dataset.change_priority(7, 35)
 fourth_heap_dataset.change_priority(10, 12)
 
 # 3.
+print("\n3. REMOVALS")
 for _ in range(4):
     fourth_heap_dataset.remove()
 
 # 4.
+print("\n4. HEAPSORT FUNCTION")
 fourth_heap_dataset.heap_sort()
 
 # 5.
+print("\n5. HIGH PRIORITY NODE")
 fourth_heap_dataset.get_high_priority()
+
+print("\n========END OF EXECUTION========")
