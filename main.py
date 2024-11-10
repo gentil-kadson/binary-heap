@@ -88,3 +88,24 @@ from classes import BinaryHeap, BinaryItem
 # third_heap_dataset.get_high_priority()
 
 # 4TH DATASET
+items = [BinaryItem(13), BinaryItem(26), BinaryItem(19), BinaryItem(17), BinaryItem(
+    24), BinaryItem(31), BinaryItem(22), BinaryItem(11), BinaryItem(8), BinaryItem(20), BinaryItem(5), BinaryItem(27), BinaryItem(18)]
+fourth_heap_dataset = BinaryHeap()
+
+# 1.
+for item in items:
+    fourth_heap_dataset.insert(item)
+
+# 2.
+fourth_heap_dataset.change_priority(7, 35)
+fourth_heap_dataset.change_priority(10, 12)
+
+# 3.
+for _ in range(4):
+    fourth_heap_dataset.remove()
+
+# 4.
+fourth_heap_dataset.heap_sort()
+
+# 5.
+fourth_heap_dataset.get_high_priority()
