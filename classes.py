@@ -73,14 +73,16 @@ class BinaryHeap:
 
     def heap_sort(self) -> None:
         self.arrange(len(self.__array) - 1)
-        aux = len(self.__array) - 1
+        binary_heap_copy = BinaryHeap(self.__array[1:])
+        copy_array = binary_heap_copy.__array
+        aux = len(copy_array) - 1
         while aux > 1:
-            swap_aux = self.__array[1]
-            self.__array[1] = self.__array[aux]
-            self.__array[aux] = swap_aux
+            swap_aux = copy_array[1]
+            copy_array[1] = copy_array[aux]
+            copy_array[aux] = swap_aux
             aux -= 1
-            self.go_down(1, aux)
-            self.display_heap()
+            binary_heap_copy.display_heap()
+            binary_heap_copy.go_down(1, aux)
 
     def change_priority(self, index: int, new_priority_key) -> None:
         self.__array[index].set_key(new_priority_key)
