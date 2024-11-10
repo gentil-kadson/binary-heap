@@ -2,9 +2,9 @@ import math
 
 
 class BinaryItem:
-    def __init__(self, value, key):
+    def __init__(self, value, key=None):
         self.__value = value
-        self.__key = key
+        self.__key = value if key is None else key
 
     def get_value(self):
         return self.__value
@@ -48,7 +48,21 @@ class BinaryHeap:
                 self.__array[index] = aux
                 self.go_down(child_index, n_of_existing_elements)
 
-    def __str__(self):
+    def insert(self, new_item: BinaryItem) -> None:
+        self.__array.append(new_item)
+        self.go_up(len(self.__array) - 1)
+
+    def swap_first_and_last_items(self) -> None:
+        aux = self.__array[1]
+        self.__array[1] = self.__array[-1]
+        self.__array[-1] = aux
+        self.__array.pop()
+
+    def remove(self) -> None:
+        self.swap_first_and_last_items()
+        self.go_down(1, len(self.__array) - 1)
+
+    def __str__(self) -> str:
         array_data = [
-            f"{item.get_value()}, {item.get_key()}" for item in self.__array[1:]]
-        return "\n".join(array_data)
+            item.get_value() for item in self.__array[1:]]
+        return f"{array_data}"
